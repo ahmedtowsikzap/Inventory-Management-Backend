@@ -83,14 +83,17 @@ const Product = mongoose.model('Product', productSchema)
 
 
 app.get("/", (req, res) => {
-  res.send("Route is working! YaY!");
+  res.send("It's working!!")
 });
 
 // posting to database
 
 app.post('/api/v1/product', (req,res, next) => {
 
-  
+  // save or create
+  const product = new Product(req.body)
+
+  product.save()
 })
 
 module.exports = app;

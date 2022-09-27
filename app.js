@@ -31,7 +31,7 @@ unit: {
   type: String,
   required: true,
   enum: {
-    value: ["kg", "litre", "pcs"],
+    values: ["kg", "litre", "pcs"],
     message: "unit value can not be {VALUE}, must be in kg/litre/pcs"
   }
 },
@@ -55,7 +55,11 @@ quantity: {
 status: {
   type: String,
   required: true,
-  enum: ["in-stock", "out-of-stock", "discontinued"]
+  enum: {
+    
+   values: ["in-stock", "out-of-stock", "discontinued"],
+   message: "status can't be {VALUE}"
+  }
 },
 supplier: {
 

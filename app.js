@@ -86,6 +86,28 @@ app.get("/", (req, res) => {
   res.send("It's working!!")
 });
 
+
+
+
+// Mongoose Middlewaress for saving data: pre & post
+
+productSchema.pre('save', function(next){
+
+
+  console.log('before saving data');
+
+  if(this.quantity === 0){
+    this.status = 'out-of-stock'
+  }
+  next()
+})
+productSchema.post('save', function(doc,next){
+  console.log('after saving data');
+  next()
+})
+
+
+
 const Product = mongoose.model('Product', productSchema)
 // posting to database
 

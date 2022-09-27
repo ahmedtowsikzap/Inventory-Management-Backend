@@ -78,7 +78,7 @@ status: {
   timestamps: true,
 })
 
-const Product = mongoose.model('Product', productSchema)
+
 
 
 
@@ -86,14 +86,33 @@ app.get("/", (req, res) => {
   res.send("It's working!!")
 });
 
+const Product = mongoose.model('Product', productSchema)
 // posting to database
 
-app.post('/api/v1/product', (req,res, next) => {
+app.post('/api/v1/product', async (req,res, next) => {
 
-  // save or create
-  const product = new Product(req.body)
+  try{
+const product = new Product(req.body)
 
-  product.save()
+// const result = await product.save()
+
+    res.status(200)
+    .json({
+    status: "success",
+    message: "data inserted successfully",
+    data: result
+})
+  }catch(error){
+  res.status(400)
+  .json({
+
+    status:"failed",
+    message: "Data is not inserted",
+    error: error.message,
+  })
+
+  }
+  
 })
 
 module.exports = app;

@@ -78,9 +78,19 @@ categories: [{
   timestamps: true,
 })
 
+const Product = mongoose.model('Product', productSchema)
+
+
+
 app.get("/", (req, res) => {
   res.send("Route is working! YaY!");
 });
 
+// posting to database
+
+app.post('/api/v1/product', (req,res, next) => {
+
+  res.send("It's working YAHOOOOOOOOOOOO")
+})
 
 module.exports = app;

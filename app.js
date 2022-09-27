@@ -61,18 +61,18 @@ status: {
    message: "status can't be {VALUE}"
   }
 },
-supplier: {
+// supplier: {
 
-  type: mongoose.Schema.Types.ObjectId,
-  ref: "supplier"
-},
-categories: [{
-  name:{
-      type:String,
-      required: true
-  },
-  _id: mongoose.Schema.Types.ObjectId
-}]
+//   type: mongoose.Schema.Types.ObjectId,
+//   ref: "supplier"
+// },
+// categories: [{
+//   name:{
+//       type:String,
+//       required: true
+//   },
+//   _id: mongoose.Schema.Types.ObjectId
+// }]
 
 }, {
   timestamps: true,
@@ -90,7 +90,7 @@ app.get("/", (req, res) => {
 
 app.post('/api/v1/product', (req,res, next) => {
 
-  res.send("It's working YAHOOOOOOOOOOOO")
+  
 })
 
 module.exports = app;

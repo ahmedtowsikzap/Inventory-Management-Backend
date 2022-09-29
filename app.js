@@ -132,7 +132,7 @@ app.post('/api/v1/product', async (req,res, next) => {
 
     status:"failed",
     message: "Data is not inserted",
-    error: error.message,
+    error: error.message
   })
 
   }

@@ -101,10 +101,10 @@ productSchema.pre('save', function(next){
   }
   next()
 })
-productSchema.post('save', function(doc,next){
-  console.log('after saving data');
-  next()
-})
+// productSchema.post('save', function(doc,next){
+//   console.log('after saving data');
+//   next()
+// })
 
 
 

@@ -106,6 +106,9 @@ productSchema.pre('save', function(next){
 //   next()
 // })
 
+productSchema.methods.logger = function (){
+  console.log(`Data saved for ${this.name}`);
+}
 
 
 const Product = mongoose.model('Product', productSchema)
@@ -116,6 +119,8 @@ app.post('/api/v1/product', async (req,res, next) => {
   try{
 
     const result = await Product.create(req.body)
+
+  result.logger()
 // const product = new Product(req.body)
 
 // const result = await product.save()

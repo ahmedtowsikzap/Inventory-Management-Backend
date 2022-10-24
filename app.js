@@ -61,18 +61,6 @@ status: {
    message: "status can't be {VALUE}"
   }
 },
-// supplier: {
-
-//   type: mongoose.Schema.Types.ObjectId,
-//   ref: "supplier"
-// },
-// categories: [{
-//   name:{
-//       type:String,
-//       required: true
-//   },
-//   _id: mongoose.Schema.Types.ObjectId
-// }]
 
 }, {
   timestamps: true,

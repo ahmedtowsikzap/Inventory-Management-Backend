@@ -135,7 +135,7 @@ app.post('/api/v1/product', async (req,res, next) => {
 app.get("/api/v1/product", async(req,res, next) => {
 
   try {
-const products = await Product.find({}).limit(4);
+const products = await Product.find({}).sort({quantity: -1});
 res.status(200).json({
   status: "success",
   data: products

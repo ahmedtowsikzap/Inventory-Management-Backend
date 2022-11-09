@@ -135,7 +135,7 @@ app.post('/api/v1/product', async (req,res, next) => {
 app.get("/api/v1/product", async(req,res, next) => {
 
   try {
-const products = await Product.where("name").equals("Chal").where("quantity").gt(100)
+const products = await Product.where("name").equals("hfh").where("quantity").gt(100)
 res.status(200).json({
   status: "success",
   data: products

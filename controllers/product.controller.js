@@ -3,7 +3,7 @@ const Product = require('../models/Product')
 exports.getProducts = async(req,res, next) => {
 
     try {
-  const products = await Product.where("name").equals("hfh").where("quantity").gt(100)
+  const products = await Product.find({})
   res.status(200).json({
     status: "success",
     data: products

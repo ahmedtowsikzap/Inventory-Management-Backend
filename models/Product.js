@@ -58,18 +58,6 @@ status: {
 }, {
   timestamps: true,
 })
-
-
-
-
-
-app.get("/", (req, res) => {
-  res.send("It's working!!")
-});
-
-
-
-
 // Mongoose Middlewaress for saving data: pre & post
 
 productSchema.pre('save', function(next){

@@ -1,9 +1,8 @@
-const Product = require('../models/Product')
+const { getProductsService, createProductService } = require("../services/product.services")
 
 exports.getProducts = async(req,res, next) => {
-
+ const products = await getProductsService()
     try {
-  const products = await Product.find({})
   res.status(200).json({
     status: "success",
     data: products
@@ -18,19 +17,14 @@ exports.getProducts = async(req,res, next) => {
     }
   }
 
-
-
   exports.createProduct = async (req,res, next) => {
 
     try{
   
-      const result = await Product.create(req.body)
+      const result = await createProductService(req.body)
   
     result.logger()
-  // const product = new Product(req.body)
-  
-  // const result = await product.save()
-  
+
       res.status(200)
       .json({
       status: "success",

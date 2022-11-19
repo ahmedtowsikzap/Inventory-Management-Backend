@@ -43,3 +43,19 @@ exports.getProducts = async(req,res, next) => {
     }
     
   }
+
+  exports.updateProducts= async (req,res,next)=> {
+        try {
+
+         } catch (error) {
+          res.status(400)
+          .json({
+        
+            status:"failed",
+            message: "couldn't update the product",
+            error: error.message
+          })
+
+         }
+
+  }

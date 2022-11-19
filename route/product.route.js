@@ -15,6 +15,6 @@ router.route("/:id")
 
 router.route('/bulk-update')
 
-.patch()
+.patch(productController.bulkUpdateProduct)
 
 module.exports = router

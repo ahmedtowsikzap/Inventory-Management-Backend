@@ -11,8 +11,6 @@ router.route('/')
 
 router.route("/:id")
 .patch(productController.updateProducts)
-
-
 router.route('/bulk-update')
 
 .patch(productController.bulkUpdateProduct)

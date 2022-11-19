@@ -69,6 +69,7 @@ exports.getProducts = async(req,res, next) => {
 
   exports.bulkUpdateProduct= async (req,res,next)=> {
         try {
+          console.log(req.body);
          const result = await bulkUpdateProductService(req.body);
          res.status(200).json({
           status: "success",

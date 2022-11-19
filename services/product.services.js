@@ -20,7 +20,8 @@ exports.updateProductService = async (productId,data) => {
 }
 
 exports.bulkUpdateProductService = async (data)=> {
-    const result = await Product.updateMany({_id: data.ids }, data, {
+    console.log(data.ids, data.data);
+    const result = await Product.updateMany({_id: data.ids }, data.data, {
         runValidators: true
     });
     return result

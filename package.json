@@ -5,7 +5,7 @@
    "main": "server.js",
    "scripts": {
       "start": "nodemon server",
-      "dev": "nodemon server"
+      "dev": "node server"
    },
    "dependencies": {
       "colors": "^1.4.0",

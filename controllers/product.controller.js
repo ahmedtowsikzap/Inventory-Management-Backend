@@ -110,7 +110,7 @@ exports.getProducts = async(req,res, next) => {
       res.status(400)
       .json({
     
-        status:"failed",
+        status:"failed!",
         message: "couldn't update the product",
         error: error.message
       })

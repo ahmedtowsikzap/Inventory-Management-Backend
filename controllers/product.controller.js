@@ -85,5 +85,24 @@ exports.getProducts = async(req,res, next) => {
           })
 
          }
-
   }
+
+  exports.deleteProductById= async (req,res,next)=> {
+    try {
+      console.log(req.body);
+     const result = await bulkUpdateProductService(req.body);
+     res.status(200).json({
+      status: "success",
+      message: "succesfully updated the product"
+    })
+     } catch (error) {
+      res.status(400)
+      .json({
+    
+        status:"failed",
+        message: "couldn't update the product",
+        error: error.message
+      })
+
+     }
+}

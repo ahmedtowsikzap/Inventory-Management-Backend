@@ -6,7 +6,7 @@ const productController = require('../controllers/product.controller')
 router.route('/bulk-update')
 .patch(productController.bulkUpdateProduct)
 router.route('/bulk-delete')
-.patch(productController.bulkDeleteProduct)
+.delete(productController.bulkDeleteProduct)
 
 router.route('/')
 .get(productController.getProducts)

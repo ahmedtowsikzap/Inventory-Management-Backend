@@ -91,6 +91,16 @@ exports.getProducts = async(req,res, next) => {
     try {
       const {id} = req.params
      const result = await deleteProductByIdService(id);
+     
+   if(!result.deletedCount){
+    return res.status(400).json({
+
+      status: "failed!",
+      error: "couldn't delete the product"
+    })
+   }
+
+
      res.status(200).json({
       status: "success",
       message: "succesfully deleted the product!"

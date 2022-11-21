@@ -1,5 +1,5 @@
 const Product = require("../models/Product")
-const { getProductsService, createProductService, updateProductService, bulkUpdateProductService } = require("../services/product.services")
+const { getProductsService, createProductService, updateProductService, bulkUpdateProductService, deleteProductByIdService } = require("../services/product.services")
 
 exports.getProducts = async(req,res, next) => {
  const products = await getProductsService()
@@ -89,11 +89,12 @@ exports.getProducts = async(req,res, next) => {
 
   exports.deleteProductById= async (req,res,next)=> {
     try {
-      console.log(req.body);
-     const result = await bulkUpdateProductService(req.body);
+      const {id} = req.params
+     const result = await deleteProductByIdService(id);
      res.status(200).json({
       status: "success",
-      message: "succesfully updated the product"
+      message: "succesfully deleted the product!"
+      
     })
      } catch (error) {
       res.status(400)

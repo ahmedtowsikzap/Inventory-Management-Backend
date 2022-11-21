@@ -1,5 +1,5 @@
 const Product = require("../models/Product")
-const { getProductsService, createProductService, updateProductService, bulkUpdateProductService, deleteProductByIdService } = require("../services/product.services")
+const { getProductsService, createProductService, updateProductService, bulkUpdateProductService, deleteProductByIdService, bulkDeleteProductService } = require("../services/product.services")
 
 exports.getProducts = async(req,res, next) => {
  const products = await getProductsService()
@@ -106,4 +106,24 @@ exports.getProducts = async(req,res, next) => {
       })
 
      }
+}
+
+exports.bulkDeleteProduct= async (req,res,next)=> {
+  try {
+    console.log(req.body);
+   const result = await bulkDeleteProductService(req.body.ids);
+   res.status(200).json({
+    status: "success",
+    message: "succesfully deleted the given product"
+  })
+   } catch (error) {
+    res.status(400)
+    .json({
+  
+      status:"failed",
+      message: "couldn't deleted the choosen product",
+      error: error.message
+    })
+
+   }
 }

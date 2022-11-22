@@ -52,7 +52,7 @@ exports.getProducts = async(req,res, next) => {
          const result = await updateProductService(id, req.body);
          res.status(200).json({
           status: "success",
-          message: "succesfully updated the product"
+          message: "successfully updated the product"
         })
          } catch (error) {
           res.status(400)
@@ -73,7 +73,7 @@ exports.getProducts = async(req,res, next) => {
          const result = await bulkUpdateProductService(req.body);
          res.status(200).json({
           status: "success",
-          message: "succesfully updated the product"
+          message: "successfully updated the product"
         })
          } catch (error) {
           res.status(400)
@@ -103,7 +103,7 @@ exports.getProducts = async(req,res, next) => {
 
      res.status(200).json({
       status: "success",
-      message: "succesfully deleted the product!"
+      message: "successfully deleted the product!"
       
     })
      } catch (error) {
@@ -124,14 +124,14 @@ exports.bulkDeleteProduct= async (req,res,next)=> {
    const result = await bulkDeleteProductService(req.body.ids);
    res.status(200).json({
     status: "success",
-    message: "succesfully deleted the given product"
+    message: "successfully deleted the given product"
   })
    } catch (error) {
     res.status(400)
     .json({
   
       status:"failed",
-      message: "couldn't deleted the choosen product",
+      message: "couldn't deleted the chosen product",
       error: error.message
     })
 

@@ -2,7 +2,8 @@ const Product = require("../models/Product")
 const { getProductsService, createProductService, updateProductService, bulkUpdateProductService, deleteProductByIdService, bulkDeleteProductService } = require("../services/product.services")
 
 exports.getProducts = async(req,res, next) => {
- const products = await getProductsService()
+  console.log(req.query);
+ const products = await getProductsService(req.query)
     try {
   res.status(200).json({
     status: "success",

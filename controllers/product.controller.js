@@ -2,8 +2,19 @@ const Product = require("../models/Product")
 const { getProductsService, createProductService, updateProductService, bulkUpdateProductService, deleteProductByIdService, bulkDeleteProductService } = require("../services/product.services")
 
 exports.getProducts = async(req,res, next) => {
-  console.log(req.query);
- const products = await getProductsService(req.query)
+
+const queryObject = {...req.query}
+
+// sort , page , limit >>>>> exclude
+
+const excludeFields = ['sort', 'page', 'limit']
+
+excludeFields.forEach(field=> delete queryObject[field])
+
+console.log('original object', req.query);
+console.log('query object', queryObject);
+
+ const products = await getProductsService(queryObject)
     try {
   res.status(200).json({
     status: "success",

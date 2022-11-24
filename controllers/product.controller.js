@@ -11,6 +11,13 @@ const excludeFields = ['sort', 'page', 'limit']
 
 excludeFields.forEach(field=> delete filters[field])
 
+const queries= []
+
+if(req.query.sort){
+  const sortBy = req.query.sort
+  console.log(sortBy);
+}
+
  const products = await getProductsService(filters)
     try {
   res.status(200).json({

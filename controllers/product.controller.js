@@ -14,11 +14,12 @@ excludeFields.forEach(field=> delete filters[field])
 const queries= []
 
 if(req.query.sort){
-  const sortBy = req.query.sort
+  // price & quantity > 'price quantity'
+  const sortBy = req.query.sort.split(',').join(' ')
   console.log(sortBy);
 }
 
- const products = await getProductsService(filters)
+ const products = await getProductsService(filters, queries)
     try {
   res.status(200).json({
     status: "success",

@@ -20,6 +20,12 @@ if(req.query.sort){
   console.log(sortBy);
 }
 
+if(req.query.fields){
+  const fields= req.query.fields.split(",").join(" ")
+  queries.fields = fields
+  console.log(fields);
+}
+
  const products = await getProductsService(filters, queries)
     try {
   res.status(200).json({

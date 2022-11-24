@@ -16,6 +16,7 @@ const queries= []
 if(req.query.sort){
   // price & quantity > 'price quantity'
   const sortBy = req.query.sort.split(',').join(' ')
+  queries.sortBy = sortBy
   console.log(sortBy);
 }
 

@@ -3,10 +3,10 @@ const mongoose = require('mongoose')
 const productSchema = mongoose.Schema({
  name: {
   type: String,
-  required: [true, "Please proivde a name for this product"],
+  required: [true, "Please provide a name for this product"],
   trim: true,
   unique: [true, "name must be unique"],
-  minLength: [3, "name should atleast 3 character"],
+  minLength: [3, "name should at least 3 character"],
   maxLength:[100, "Name is too large to create"]
  },
 
@@ -58,7 +58,7 @@ status: {
 }, {
   timestamps: true,
 })
-// Mongoose Middlewaress for saving data: pre & post
+// Mongoose Middleware for saving data: pre & post
 
 productSchema.pre('save', function(next){
 

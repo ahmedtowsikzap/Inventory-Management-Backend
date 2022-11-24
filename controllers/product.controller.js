@@ -3,18 +3,18 @@ const { getProductsService, createProductService, updateProductService, bulkUpda
 
 exports.getProducts = async(req,res, next) => {
 
-const queryObject = {...req.query}
+const filters = {...req.query}
 
 // sort , page , limit >>>>> exclude
 
 const excludeFields = ['sort', 'page', 'limit']
 
-excludeFields.forEach(field=> delete queryObject[field])
+excludeFields.forEach(field=> delete filters[field])
 
 console.log('original object', req.query);
-console.log('query object', queryObject);
+console.log('query object', filters);
 
- const products = await getProductsService(queryObject)
+ const products = await getProductsService(filters)
     try {
   res.status(200).json({
     status: "success",

@@ -33,7 +33,6 @@ exports.bulkUpdateProductService = async (data) => {
   });
 
   const result = await Promise.all(products);
-  console.log(result);
   return result;
 };
 
